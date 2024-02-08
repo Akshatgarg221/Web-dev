@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Traffic Jam menu</title>
+    
+    <style>
+        
+        body
+        {
+            margin: 0;
+            padding: 0;
+            height: fit-content;
+            width: fit-content;
+            /* make it look decent enough */
+            color:black;
+            background-color: black;
+            font-family: "Avenir Next", "Avenir", sans-serif;
+
+        }
+        
+        #menuToggle
+        {
+            display: block;
+            position: relative;
+            top: 40px;
+            left: 10px;
+            
+            z-index: 1;
+            
+            -webkit-user-select: none;
+            user-select: none;
+        }
+        
+        #menuToggle a
+        {
+            text-decoration: none;
+            color: #232323;
+            
+            transition: color 0.3s ease;
+        }
+        
+        #menuToggle a:hover
+        {
+            color: tomato;
+        }
+        
+        
+        #menuToggle input
+        {
+            display: block;
+            width: 40px;
+            height: 32px;
+            position: absolute;
+            top: -7px;
+            left: -5px;
+            
+            cursor: pointer;
+            
+            opacity: 0; /* hide this */
+            z-index: 2; /* and place it over the hamburger */
+            
+            -webkit-touch-callout: none;
+        }
+        
+        /*
+        * Just a quick hamburger
+        */
+        #menuToggle span
+        {
+            display: block;
+            width: 100px;
+            height: 20px;
+            margin-bottom: 10px;
+            position: relative;
+            background: #fd5000;
+            border-radius: 15px;
+            
+            z-index: 1;
+            
+            transform-origin: 8px 0px;
+            
+            transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+            background 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+            opacity 0.55s ease;
+        }
+        
+        #menuToggle span:first-child
+        {
+            transform-origin: 0% 0%;
+        }
+        
+        #menuToggle span:nth-last-child(2)
+        {
+            transform-origin: 0% 100%;
+        }
+        
+        /* 
+        * Transform all the slices of hamburger
+        * into a crossmark.
+        */
+        #menuToggle input:checked ~ span
+        {
+            opacity: 1;
+            transform: rotate(45deg) translate(-2px, -1px);
+            background: #d11010;
+        }
+        
+        /*
+        * But let's hide the middle one.
+        */
+        #menuToggle input:checked ~ span:nth-last-child(3)
+        {
+            opacity: 0;
+            transform: rotate(0deg) scale(0.2, 0.2);
+        }
+        
+        /*
+        * Ohyeah and the last one should go the other direction
+        */
+        #menuToggle input:checked ~ span:nth-last-child(2)
+        {
+            transform: rotate(-45deg) translate(0, -1px);
+        }
+        
+        /*
+        * Make this absolute positioned
+        * at the top left of the screen
+        */
+        #menu
+        {
+            position: absolute;
+            width: 50%;
+            margin: -100px 0 0 -50px;
+            height: 500vh;
+            padding: 50px;
+            padding-top: 125px;
+            
+            background: #ecd6c3;
+            list-style-type: none;
+            -webkit-font-smoothing: antialiased;
+            /* to stop flickering of text in safari */
+            
+            transform-origin: 0% 0%;
+            transform: translate(-100%, 0);
+            
+            transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
+        }
+        
+        #menu li
+        {
+            padding: 40px 0;
+            font-size: 122px;
+        }
+        .M1{
+            color:white;
+            position:relative;
+            padding-left: 160px;
+            top: -130px;
+            font-size:25vw;
+        }
+        /*
+        * And let's slide it in from the left
+        */
+        #menuToggle input:checked ~ ul
+        {
+            transform: none;
+        }
+        .menu{
+    
+            height: 100vh;
+            width: 100vw;
+            background-position: center;
+            position: relative;
+            top: 50px;
+
+
+
+
+        }
+        .heading{color: white;
+            font-size: 300px;
+            position: relative;
+            top: -320px;
+            left: 80px;
+            
+        }
+        .items{color: bisque;
+            position: relative;
+            top: -20px;
+        }
+         .cost{
+             position: relative;
+             left: 100%;
+
+          
+
+         }
+         .menu_items{
+             color:bisque;
+             font-size: 40px;
+         }
+         .types{
+            color:white;
+            font-size: 70px;
+            display: flex;
+            position: relative;
+            top: 30px;
+         }
+         .main{position: relative;
+        top: -600px;}
+
+
+        </style>
+</head>
+<body>
+    <!--hammburger menu -->
+    <nav role="navigation">
+        <div id="menuToggle">
+            <input type="checkbox" />
+            <span></span>
+    <span></span>
+    <span></span>
+    <ul id="menu">
+        <a href="./index.html"><li>Home</li></a><hr>
+        <a href="./menu.html"><li>Menu</li></a><hr>
+        <a href="./about.html"><li>About</li></a><hr>
+        <a href="./gallery.html"><li>Gallery</li></a><hr>
+        <a href="./contact.html"><li>Contact us </li></a><hr>
+        <a href="https://www.google.com/maps/place/Traffic+Jam+Kitchen+%26+Bar/@28.871282,78.7546556,15z/data=!4m5!3m4!1s0x0:0x7e15a765ea190f51!8m2!3d28.8712973!4d78.7546352"><li>address</li></a><hr>
+      </ul>
+    </div>
+  </nav>
+  <div class="M1">
+      
+      
+    <p class="name">Traffic Jam Kitchen & Bar</p>
+
+    
+</div>
+<p class="heading"">MENU</p>
+<!--
+  <div class="menu">
+      <p class="heading">Street menu</p>
+    <ul style = "color: white;">
+
+    
+    <li class="cost">                                99                      </li><li class="items">	MAKHANI MAGGI            </li>                                            
+	<li class="cost">                                129/149</li><li class="items">	PAO BHAJI/CHEESE                           </li>                    
+	<li class="cost">                                129</li><li class="items">	KATHI ROLLS PANEER/SOYA/CHKN                </li>
+	<li class="cost">                        59/79</li><li class="items">	PANI PURI SHOT VEG/CHKN                              </li>
+	<li class="cost">                                69</li><li class="items">	PALAK PATTA CHAT                               </li>           
+	<li class="cost">                             109</li><li class="items">	MUMBAI VADA PAO                                  </li>       
+	<li class="cost">                                  229</li><li class="items">	MAKHANI PASTA                                </li>                
+	<li class="cost">                                      179</li><li class="items">KEEMA PAO                                 </li>                       
+	<li class="cost">                      229/249</li><li class="items">	KULHAD BIRYANI VEG/CHKN                              </li>
+	<li class="cost">                                  49</li><li class="items">TANDOORI CHAI                                  </li>             
+	<li class="cost">       179/199/219</li><li class="items">	BRUSCHETTA TOMATO/<br> BHURJI/CHKN         </li>
+	<li class="cost">                               89</li><li class="items">	CHILLY CHEESE TOAST                              </li>        
+	<li class="cost">                      159/179</li><li class="items">	CLUB SANDWICH VEG/CHKN                               </li>
+	<li class="cost">                              159/179</li><li class="items">BURGER VEG/CHKN                               </li>               
+	<li class="cost">                        79/99</li><li class="items">	PERI PERI FRIES PLAIN/CHEESE                         </li>
+	<li class="cost">                                    79</li><li class="items">	BUTTER CORN                                </li>                   
+	<li class="cost">                          119/139</li><li class="items">	QUESADILLAS VEG/CHKN                             </li>        
+	<li class="cost">                              109</li><li class="items">	POTATO CROUQETS                                  </li>        
+	<li class="cost">                                    129</li><li class="items">	CHOLE KULCHE                               </li>                    
+	<li class="cost">                                249</li><li class="items">	CHACURD CHICKEN                                </li>            
+	<li class="cost">                           129</li><li class="items">	CRISPY AMERICAN CORN                               </li>   
+	<li class="cost">                             149</li><li class="items">	HONEY CHILLY POTATO                              </li>       
+	<li class="cost">                   129/149</li><li class="items">	DIMSUMS PANEER, CORN/CHKN                         </li>
+</ul>
+-->
+<section class="main">
+<p class="types">Street menu</p>
+<pre class="menu_items">
+    → MAKHANI MAGGI                              • ₹99
+    → PAO BHAJI/CHEESE                           • ₹129/149
+    → KATHI ROLLS PANEER/SOYA/CHKN               • ₹129
+    → PANI PURI SHOT VEG/CHKN                    • ₹59/79
+    → PALAK PATTA CHAT                           • ₹69
+    → MUMBAI VADA PAO                            • ₹109
+    → MAKHANI PASTA                              • ₹229
+    → KEEMA PAO                                  • ₹179
+    → KULHAD BIRYANI VEG/CHKN                    • ₹229/249
+    → TANDOORI CHAI                              • ₹49
+    → BRUSCHETTA TOMATO/EGG BHURJI/CHKN          • ₹179/199
+    → CHILLY CHEESE TOAST                        • ₹89
+    → CLUB SANDWICH VEG/CHKN                     • ₹159/179
+    → BURGER VEG/CHKN                            • ₹159/179
+    → PERI PERI FRIES PLAIN/CHEESE               • ₹79/99
+    → BUTTER CORN                                • ₹79
+    → QUESADILLAS VEG/CHKN                       • ₹119/139
+    → POTATO CROUQETS                            • ₹109
+    → CHOLE KULCHE                               • ₹129
+    → CHACURD CHICKEN                            • ₹249
+    → CRISPY AMERICAN CORN                       • ₹129
+    → HONEY CHILLY POTATO                        • ₹149   
+    → DIMSUMS PANEER, CORN/CHKN                  
+    
+                             <pre class="types">NIBBLES </pre>
+    <pre class="menu_items">
+    → NACHOS PLAIN/CHEESE                        • ₹169/189
+    → MASALA PEANUT                              • ₹89
+    → PAPAD PLATTER                              • ₹109
+    → MAGGIE BHEL                                • ₹89   
+    </pre>                         
+    
+    
+                         <p class="types">Soup</p>
+     <pre class="menu_items">
+     TOMATO SOUP                                 • ₹129
+     MUSHROOM SOUP                               • ₹129
+     HOT N SOUR SOUP  VEG/CHKN                   • ₹129/149
+     MUNCHOW VEG/CHKN                            • ₹129/149
+     TALUMEIN VEG/CHKN                           • ₹129/149
+     
+     
+     <p class="types">SALAD </p>
+     SOMTOM SALAD                                • ₹149
+     CAESAR SALAD                                • ₹169
+     FATTOUSH SALAD                              • ₹169
+     GREENN SALAD                                • ₹99
+     
+    </pre>
+    <p class="types">ORIENTAL</p>
+    <pre class="menu_items">
+    MUNCHURIAN DRY/GRAVY                         • ₹209/229
+    HOT CHILLY CHICKEN                           • ₹299
+    CHICKEN LOLLYPOP WITH PERI PERI              • ₹349
+    CHICKEN LEMON                                • ₹329
+    KUNGPAO CHICKEN DRY/GRAVY                    • ₹329/349
+    CHICKEN BLACK PEPPER                         • ₹329
+    CHICKEN 65                                   • ₹329
+    LOTUS SALT N PEPPER                          • ₹209
+    MUSHROOM SALT N PEPPER                       • ₹209
+    VEGGIE IN HOT GARLIC SAUCE                   • ₹209
+    PAN FRIED NOODLES VEG/CHKN                   • ₹249/279
+    BASIL SAUCE PANEER/CHKN                      • ₹269
+    SCHEZWAN SAUCE PANEER/CHKN                   • ₹269   
+    THAI CURRY RED & GREEN VEG/CHKN              • ₹359
+    DEVIL CHICKEN SIZZLERS                       • ₹349
+    </pre>
+
+    <p class="types">Rice/noodles</p>
+    <pre class="menu_items">
+    HAKKA NOODLES VEG/EGG/CHKN                   • ₹199/209
+    CHILLY GARLIC NOODLES VEG/EGG/CHKN           • ₹199/209
+    SINGAPORE NOODLES                            • ₹199
+    BASIL FRIED RICE VEG/EGG/CHKN                • ₹209/219
+    SCHEZWAN FRIED RICE VEG/EGG/CHKN             • ₹209/219
+
+    
+</pre>
+ 
+
+     <p class="types">EUROPEAN</p>
+ <pre class="menu_items">
+    CHICKEN FINGER IN BBQ SAUCE                  • ₹299
+    CHICKEN NUGGETS WITH TARTER SAUCE            • ₹299
+    JOINED MUSHROOM CAPS                         • ₹299
+    FALAFAL WITH HUMMUS PITA                     • ₹299
+    NACHOS PLAIN/CHEESE                          • ₹169/189
+    KRIVI’S SPECIAL PIZZA                        • ₹289
+    PIZZA ALLE VERDURE                           • ₹269
+    TIKKA TOWN PIZZA                             • ₹289
+    PENNE ARRABIATA                              • ₹229
+    FUSILLI WHITE SAUCE VEG/CHKN                 • ₹229/249
+    SPAGHETTI AGLIO E OLIO                       • ₹229
+    CHICKEN BREAST WITH BLACK PEPPER SAUCE       • ₹349          
+    KHAO SUEY VEG/CHICKEN                        • ₹359
+    SINGAPURE LAKSHA VEG/CHICKEN                 • ₹359
+    CHILLY PANEER BURRITO                        • ₹149
+    CHICKEN POWER SUB                            • ₹229
+    PANEER HEAVEN SUB                            • ₹229
+    COTTAGE CHEESE FAJITA /CHICKEN SIZZLERS      • ₹349
+ </pre>
+    
+    
+    <p class="types">Tandoor VEG</p> 
+    <pre class="menu_items">
+    VEG SEEKH KEBAB                              • ₹249
+    PERI PERI PANEER TIKKA                       • ₹299
+    CORAINDER PESTO PANEER TIKKA                 • ₹299
+    SOYA MALAI CHAAP                             • ₹269 
+    BURANSI PANEER TIKKA                         • ₹299
+    PAPAD ROLL KEBAB                             • ₹249
+    TANDOORI PLATTER                             • ₹349
+    KURKURE MUSHROOM                             • ₹249
+    </pre>
+    
+    <p class="types">Non VEG</p>
+    <pre class="menu_items">
+    BURANSI CHICKEN TIKKA                        • ₹329
+    MALAI CHICKEN TIKKA                          • ₹329
+    MURG ANGARA                                  • ₹249
+    BANNO KEBAB                                  • ₹329
+    KHAAS SEEKH KEBAB                            • ₹349
+    TANDOORI CHICKEN                             • ₹249
+    AJWAINI FISH TIKKA                           • ₹399
+    ACHARI FISH TIKKA                            • ₹399
+    CHICKEN GILAFI SEEKH                         • ₹329
+    NON VEG PLATTER                              • ₹429
+</pre>
+    
+    <p class="types">Curry veg</p>
+    <pre class="menu_items">
+
+    DAL MAKHANI                                  • ₹249
+    DAL  TADKA                                   • ₹219
+    PANEER LABABDAR                              • ₹289
+    PANEER TIKKA MASALA                          • ₹289 
+    TAWA CHAAP MASALA                            • ₹289
+    MIX VEG                                      • ₹219
+    KADHAI PANEER                                • ₹289
+    PANEER BUTTER MASALA                         • ₹289
+    MUSHROOM MATAR MASALA                        • ₹219
+</pre>
+    
+<p class="types">Non VEG </p>
+<pre class="menu_items">
+    BUTTER CHICKEN                               • ₹369
+    KADHAI CHICKEN                               • ₹369
+    CHICKEN TAWA MASALA                          • ₹369
+    DHABA CHICKEN CURRY                          • ₹329
+    TAWA CHICKEN MASALA                          • ₹329
+    MURGH KALI MIRCH                             • ₹369
+    MURGH MULTANI                                • ₹369
+    MUTTON ROGAN JOSH                            • ₹429
+    MUTTON RARA GOSHT                            • ₹429
+    MUTTON SEEKH TAWA MASALA                     • ₹429
+</pre>
+    
+    
+<p class="types">BREADS</p>
+                                              <pre class="menu_items">
+    TANDOORI ROTI                                • ₹29
+    TANDOORI BUTTER ROTI                         • ₹39
+    BUTTER NAAN                                  • ₹59
+    KALONJI NAAN                                 • ₹59
+    PLAIN NAAN                                   • ₹39
+    LACHA PARATHA                                • ₹59
+    MISSI ROTI                                   • ₹39
+    PANEER CHEESE KULCHA                         • ₹69
+    MIX VEG KULCHA                               • ₹69
+    GARLIC NAAN                                  • ₹69
+    GREEN CHILLY / PUDINA LACHA PARATHA          • ₹69
+</pre>
+    
+<p class="types">RAITA</p>
+<pre class="menu_items">
+    BOONDI RAITA                                 • ₹99
+    MIX  RAITA                                   • ₹99
+    PINEAPPLE RAITA                              • ₹99
+</pre>    
+<p class="types">DESSERTS</p>
+<pre class="menu_items">
+    KESARI PHIRNI                               • ₹99
+    SIZZLING BROWNIE                            • ₹149
+    SHAAM SAWERA                                • ₹109
+    MOONG DAL HALWA                             • ₹109
+    CHOCOLATE MOUSE                             • ₹109
+    </pre>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <title>Document</title>
+</head>
+<body>
+     <style>
+
+        body
+        {
+            margin: 0;
+            padding: 0;
+            
+            /* make it look decent enough */
+            color:black;
+            background-color: black;
+            font-family: "Avenir Next", "Avenir", sans-serif;
+        }
+        
+        #menuToggle
+        {
+            display: block;
+            position: relative;
+            top: 40px;
+            left: 10px;
+            
+            z-index: 1;
+            
+            -webkit-user-select: none;
+            user-select: none;
+        }
+        
+        #menuToggle a
+        {
+            text-decoration: none;
+            color: #232323;
+            
+            transition: color 0.3s ease;
+        }
+        
+        #menuToggle a:hover
+        {
+            color: tomato;
+        }
+        
+        
+        #menuToggle input
+        {
+            display: block;
+            width: 40px;
+            height: 32px;
+            position: absolute;
+            top: -7px;
+            left: -5px;
+            
+            cursor: pointer;
+            
+            opacity: 0; /* hide this */
+            z-index: 2; /* and place it over the hamburger */
+            
+            -webkit-touch-callout: none;
+        }
+        
+        /*
+        * Just a quick hamburger
+        */
+        #menuToggle span
+        {
+  display: block;
+  width: 33px;
+  height: 4px;
+  margin-bottom: 5px;
+  position: relative;
+  
+  background: #fd5000;
+  border-radius: 3px;
+  
+  z-index: 1;
+  
+  transform-origin: 4px 0px;
+  
+  transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+  background 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+  opacity 0.55s ease;
+}
+
+#menuToggle span:first-child
+{
+    transform-origin: 0% 0%;
+}
+
+#menuToggle span:nth-last-child(2)
+{
+    transform-origin: 0% 100%;
+}
+
+/* 
+* Transform all the slices of hamburger
+* into a crossmark.
+*/
+#menuToggle input:checked ~ span
+{
+    opacity: 1;
+    transform: rotate(45deg) translate(-2px, -1px);
+    background: #d11010;
+}
+
+/*
+* But let's hide the middle one.
+*/
+#menuToggle input:checked ~ span:nth-last-child(3)
+{
+    opacity: 0;
+    transform: rotate(0deg) scale(0.2, 0.2);
+}
+
+/*
+* Ohyeah and the last one should go the other direction
+*/
+#menuToggle input:checked ~ span:nth-last-child(2)
+{
+    transform: rotate(-45deg) translate(0, -1px);
+}
+
+/*
+* Make this absolute positioned
+* at the top left of the screen
+*/
+#menu
+{
+    position: absolute;
+    width: 100%;
+    margin: -100px 0 0 -50px;
+    height: 100vh;
+    padding: 50px;
+    padding-top: 125px;
+    
+    background: #ecd6c3;
+    list-style-type: none;
+    -webkit-font-smoothing: antialiased;
+    /* to stop flickering of text in safari */
+    
+    transform-origin: 0% 0%;
+    transform: translate(-100%, 0);
+    
+    transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
+}
+
+#menu li
+{
+    padding: 20px 0;
+    font-size: 22px;
+}
+.M1{
+    color:white;
+    display: flex;
+    justify-content: center;
+    position:absolute;
+    padding-left: 60px;
+    top: 35px;
+    font-size: 150%;
+}
+/*
+* And let's slide it in from the left
+*/
+#menuToggle input:checked ~ ul
+{
+    transform: none;
+}
+.g6{
+  border-color:white;
+  border-style: solid;
+  border-width: 5px;
+  margin-top:30px;
+  border-radius:5px;
+  position:relative;
+  top:10px;
+  width:100vw;
+}
+
+</style>
+</head>
+<body>
+    <!--hammburger menu -->
+    <nav role="navigation">
+        <div id="menuToggle">
+            <input type="checkbox" />
+            <span></span>
+    <span></span>
+    <span></span>
+    <ul id="menu">
+        <a href="./index.html"><li>Home</li></a>
+        <a href="./menu.html"><li>Menu</li></a>
+        <a href="./about.html"><li>About</li></a>
+        <a href="./gallery.html"><li>Gallery</li></a>
+        <a href="./contact.html"><li>Contact us </li></a>
+        <a href="https://www.google.com/maps/place/Traffic+Jam+Kitchen+%26+Bar/@28.871282,78.7546556,15z/data=!4m5!3m4!1s0x0:0x7e15a765ea190f51!8m2!3d28.8712973!4d78.7546352"><li>address</li></a>
+      </ul>
+    </div>
+  </nav>
+  <div class="M1">
+      
+      <p class="name">Traffic Jam Kitchen & Bar</p>
+    </div>
+    <section class="text-gray-600 body-font">
+        <div class="container px-5 py-24 mx-auto">
+          <div class="flex flex-col text-center w-full mb-20">
+            <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900" style="color: white;">Gallery</h1>
+            <p class="lg:w-2/3 mx-auto leading-relaxed text-base">some memories of our lovely Traffic Jam Kitchen & bar</p>
+          </div>
+    <!--
+          <div class="flex flex-wrap -m-4">
+            <div class="lg:w-1/3 sm:w-1/2 p-4">
+              <div class="flex relative">
+                <img alt="gallery" class="absolute inset-0 w-full h-full object-cover object-center" src="./images/g1.jpeg">
+                <div class="px-8 py-10 relative z-10 w-full border-4 border-gray-200 bg-white opacity-0 hover:opacity-100">
+                  <h1 class="title-font text-lg font-medium text-gray-900 mb-3">Tasty salad</h1>
+                  <p class="leading-relaxed">One of the benefits of eating salad is that you can eat tons of it and never be satisfied.</p>
+                </div>
+              </div>
+            </div>
+            <div class="lg:w-1/3 sm:w-1/2 p-4">
+              <div class="flex relative">
+                <img alt="gallery" class="absolute inset-0 w-full h-full object-cover object-center" src="/images/g2.jpeg">
+                <div class="px-8 py-10 relative z-10 w-full border-4 border-gray-200 bg-white opacity-0 hover:opacity-100">
+                  <h1 class="title-font text-lg font-medium text-gray-900 mb-3">Tasty chowmien</h1>
+                  <p class="leading-relaxed">"Life is a combination of magic and pasta.</p>
+                </div>
+              </div>
+            </div>
+            <div class="lg:w-1/3 sm:w-1/2 p-4">
+              <div class="flex relative">
+                <img alt="gallery" class="absolute inset-0 w-full h-full object-cover object-center" src="images/g3.jpeg">
+                <div class="px-8 py-10 relative z-10 w-full border-4 border-gray-200 bg-white opacity-0 hover:opacity-100">
+                  <h1 class="title-font text-lg font-medium text-gray-900 mb-3">The TASTY MANCHURIEN</h1>
+                  <p class="leading-relaxed">Food is our common ground.A universal experience.</p>
+                </div>
+              </div>
+            </div>
+            <div class="lg:w-1/3 sm:w-1/2 p-4">
+              <div class="flex relative">
+                <img alt="gallery" class="absolute inset-0 w-full h-full object-cover object-center" src="images/g4.jpeg">
+                <div class="px-8 py-10 relative z-10 w-full border-4 border-gray-200 bg-white opacity-0 hover:opacity-100">
+                 
+                  <h1 class="title-font text-lg font-medium text-gray-900 mb-3">SWEETS</h1>
+                  <p class="leading-relaxed">Candy is nature's way of sweet food quotes - Google Search</p>
+                </div>
+              </div>
+            </div>
+            <div class="lg:w-1/3 sm:w-1/2 p-4">
+              <div class="flex relative">
+                <img alt="gallery" class="absolute inset-0 w-full h-full object-cover object-center" src="images/g5.jpeg">
+                <div class="px-8 py-10 relative z-10 w-full border-4 border-gray-200 bg-white opacity-0 hover:opacity-100">
+             
+                  <h1 class="title-font text-lg font-medium text-gray-900 mb-3">Tasty meat</h1>
+                  <p class="leading-relaxed">Wine is the intellectual part of a meal while meat is the material.</p>
+                </div>
+              </div>
+            </div>
+            <div class="lg:w-1/3 sm:w-1/2 p-4">
+              <div class="flex relative">
+              <div  style="height=20px">
+                <img alt="gallery" class="g6" src="images/g6.jpeg" >
+                </div>
+                <div class="px-8 py-10 relative z-10 w-full border-4 border-gray-200 bg-white opacity-0 hover:opacity-100">
+  
+                  <h1 class="title-font text-lg font-medium text-gray-900 mb-3">Tasty pizza</h1>
+                  <p class="leading-relaxed">“The perfect lover is one who turns into a pizza at 4:00 A.M.”</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+-->
+<img alt="gallery"  class="g6" src="./images/g1.jpeg">
+<img alt="gallery"  class="g6" src="images/g2.jpeg">
+<img alt="gallery"  class="g6" src="images/g3.jpeg">
+<img alt="gallery"  class="g6" src="images/g4.jpeg">
+<img alt="gallery"  class="g6" src="images/g5.jpeg">
+<img alt="gallery"  class="g6" src="images/g6.jpeg" >
+
+
+  
+</body>
+</html>

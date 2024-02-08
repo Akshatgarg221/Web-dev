@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://unpkg.com/tailwindcsstttttttt@^2/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+
+        body
+        {
+            margin: 0;
+            padding: 0;
+            
+            /* make it look decent enough */
+            color:black;
+            font-family: "Avenir Next", "Avenir", sans-serif;
+        }
+        
+        #menuToggle
+        {
+            display: block;
+            position: relative;
+            top: 40px;
+            left: 10px;
+            
+            z-index: 1;
+            
+            -webkit-user-select: none;
+            user-select: none;
+        }
+        
+        #menuToggle a
+        {
+            text-decoration: none;
+            color: #232323;
+            
+            transition: color 0.3s ease;
+        }
+        
+        #menuToggle a:hover
+        {
+            color: tomato;
+        }
+        
+        
+        #menuToggle input
+        {
+            display: block;
+            width: 40px;
+            height: 32px;
+            position: absolute;
+            top: -7px;
+            left: -5px;
+            
+            cursor: pointer;
+            
+            opacity: 0; /* hide this */
+            z-index: 2; /* and place it over the hamburger */
+            
+            -webkit-touch-callout: none;
+        }
+        
+        /*
+        * Just a quick hamburger
+        */
+        #menuToggle span
+        {
+  display: block;
+  width: 33px;
+  height: 4px;
+  margin-bottom: 5px;
+  position: relative;
+  
+  background: #fd5000;
+  border-radius: 3px;
+  
+  z-index: 1;
+  
+  transform-origin: 4px 0px;
+  
+  transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+  background 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+  opacity 0.55s ease;
+}
+
+#menuToggle span:first-child
+{
+    transform-origin: 0% 0%;
+}
+
+#menuToggle span:nth-last-child(2)
+{
+    transform-origin: 0% 100%;
+}
+
+/* 
+* Transform all the slices of hamburger
+* into a crossmark.
+*/
+#menuToggle input:checked ~ span
+{
+    opacity: 1;
+    transform: rotate(45deg) translate(-2px, -1px);
+    background: #d11010;
+}
+
+/*
+* But let's hide the middle one.
+*/
+#menuToggle input:checked ~ span:nth-last-child(3)
+{
+    opacity: 0;
+    transform: rotate(0deg) scale(0.2, 0.2);
+}
+
+/*
+* Ohyeah and the last one should go the other direction
+*/
+#menuToggle input:checked ~ span:nth-last-child(2)
+{
+    transform: rotate(-45deg) translate(0, -1px);
+}
+
+/*
+* Make this absolute positioned
+* at the top left of the screen
+*/
+#menu
+{
+    position: absolute;
+    width: 100%;
+    margin: -100px 0 0 -50px;
+    height: 100vh;
+    padding: 50px;
+    padding-top: 125px;
+    
+    background: #ecd6c3;
+    list-style-type: none;
+    -webkit-font-smoothing: antialiased;
+    /* to stop flickering of text in safari */
+    
+    transform-origin: 0% 0%;
+    transform: translate(-100%, 0);
+    
+    transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
+}
+
+#menu li
+{
+    padding: 20px 0;
+    font-size: 22px;
+}
+
+/*
+* And let's slide it in from the left
+*/
+#menuToggle input:checked ~ ul
+{
+    transform: none;
+}
+</style>
+</head>
+<body>
+    <!--hammburger menu -->
+    <nav role="navigation">
+        <div id="menuToggle">
+            <input type="checkbox" />
+            <span></span>
+    <span></span>
+    <span></span>
+    <ul id="menu">
+        <a href="./index.html"><li>Home</li></a>
+        <a href="./menu.html"><li>Menu</li></a>
+        <a href="./about.html"><li>About</li></a>
+        <a href="./gallery.html"><li>Gallery</li></a>
+        <a href="./contact.html"><li>Contact us </li></a>
+        <a href="https://www.google.com/maps/place/Traffic+Jam+Kitchen+%26+Bar/@28.871282,78.7546556,15z/data=!4m5!3m4!1s0x0:0x7e15a765ea190f51!8m2!3d28.8712973!4d78.7546352"><li>address</li></a>
+      </ul>
+    </div>
+  </nav>
+
+    <p style="color: black;font-size: 45px; text-align: center;margin-top: 40px;">About Us</p>
+    <section class="text-gray-600 body-font">
+        <div class="container px-5 py-24 mx-auto flex flex-wrap">
+          <div class="flex flex-wrap -mx-4 mt-auto mb-auto lg:w-1/2 sm:w-2/3 content-start sm:pr-10">
+            <div class="w-full sm:p-4 px-4 mb-6">
+              <h1 class="title-font font-medium text-xl mb-2 text-gray-900">Traffic Jam Bar & Restaurant</h1>
+              <div class="leading-relaxed">KITCHEN is a one-of-a-kind culinary establishment with a menu inspired by the idea of simple and honest cooking. Starting in 2000, we developed a unique dining experience for all of our guests using fresh and sustainable ingredients—taking you on a culinary journey like no other.
+
+                From classic recipes to new-age kitchen adventures, each dish reflects our passion for high-quality food presented in a simple yet pleasing manner. Dive right in, and take a bite; join us today.</div>
+            </div>
+          <div class="lg:w-1/2 sm:w-1/3 w-full rounded-lg overflow-hidden mt-6 sm:mt-0">
+            <img class="object-cover object-center w-full h-full" src="images/a1.jpeg" alt="stats" style="width:100vw;">
+          </div>
+        </div>
+      </section>
+      <section class="text-gray-600 body-font">
+        <div class="container px-5 py-24 mx-auto flex flex-wrap">
+          <div class="flex flex-wrap -mx-4 mt-auto mb-auto lg:w-1/2 sm:w-2/3 content-start sm:pr-10">
+            <div class="w-full sm:p-4 px-4 mb-6">
+              <h1 class="title-font font-medium text-xl mb-2 text-gray-900">Traffic Jam Bar & Restaurant</h1>
+              <div class="leading-relaxed">  KITCHEN is known for revolutionizing the way people eat and enjoy food. We take pride in our ability to discover the most unique flavors from around the world and share them with the Moradabad area.join us</div>
+            </div>
+          <div class="lg:w-1/2 sm:w-1/3 w-full rounded-lg overflow-hidden mt-6 sm:mt-0">
+            <img class="object-cover object-center w-full h-full" src="images/a2.jpeg" alt="stats" style="width: 100vw;">
+          </div>
+        </div>
+      </section>
+</body>
+</html>
